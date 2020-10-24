@@ -1,5 +1,5 @@
-@import '../util/_theme';
-@import '../util/_vars';
+@import '../util/theme';
+@import '../util/vars';
 
 #nav {
   position: fixed;
@@ -7,14 +7,14 @@
   padding: 10px;
   background: $slate-gray;
   color: $old-lace;
-  height: 48px;
+  height: auto;
+  max-height: 48px;
   overflow-y: hidden;
-  transition: height 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in-out;
   box-shadow: 0px -29px 40px 25px #534a4a;
   z-index: 1;
-  transition: top 0.3s;
   &.expanded {
-    height: 500px;
+    max-height: 350px;
   }
 }
 .nav__header {
@@ -34,6 +34,8 @@
     color: $old-lace;
     font-size: 18px;
     width: 65px;
+    margin: 0px;
+    padding: 0px;
     i {
       transition: transform 0.3s ease-in-out;
       &.expanded {
@@ -92,6 +94,25 @@
     margin-bottom: 20px;
   }
 }
+.nav__archive-link {
+  ::marker:hover {
+    color: $nyanza;
+  }
+  button {
+    color: $old-lace;
+    font-size: 20px;
+    font-family: "Barlow", Helvetica, sans-serif;
+    letter-spacing: 1px;
+    background: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+    &:hover {
+      color: $nyanza;
+    }
+  }
+}
 .nav__media-links {
   display: flex;
   justify-content: center;
@@ -106,143 +127,3 @@
   font-size: 42px;
   color: $old-lace;
 }
-
-// #nav {
-//   padding: 20px;
-//   background-color: $slate-gray;
-//   justify-content: space-between;
-//   color: $old-lace;
-//   box-sizing: border-box;
-//   transition: width 0.3s ease-out;
-//   -webkit-box-sizing: border-box;
-//   -moz-box-sizing: border-box;
-//   position: absolute;
-//   bottom: 0;
-//   top: 0;
-//   overflow-x: hidden;
-//   white-space: nowrap;
-//   &.mini {
-//     width: 78px;
-//     padding: 20px 5px;
-//     align-items: center;
-//   }
-//   &.full {
-//     width: 355px;
-//   }
-//   @media (max-width: 375px) {
-//     &.full {
-//       width: 100%;
-//       max-width: unset;
-//       padding: 0 10px 10px;
-//     }
-//   }
-// }
-// #posts {
-//   padding: 0;
-//   list-style: none;
-//   a {
-//     text-decoration: none;
-//     color: $old-lace;
-//   }
-// }
-// .nav__drawer-header {
-//   margin-bottom: 20px;
-//   transition: margin-bottom 0.3s ease-out;
-//   border-width: 0px;
-//   align-items: flex-start;
-//   hr {
-//     border: none;
-//     margin: 5px 0 0;
-//     width: 0px;
-//     height: 1px;
-//     background-color: $nyanza;
-//     transition: width 0.3s ease-out;
-//   }
-//   button {
-//     padding: 0px;
-//     background: none;
-//     border: none;
-//     color: $old-lace;
-//     cursor: pointer;
-//     letter-spacing: 3.1px;
-//     font-weight: 350;
-//     font-size: 24px;
-//   }
-//   &.active {
-//     margin-bottom: 0px;
-//     hr {
-//       width: 100%;
-//     }
-//     button {
-//       font-weight: 500;
-//     }
-//   }
-//   @media (max-width: 375px) {
-//     display: none;
-//   }
-// }
-// .nav__section {
-//   padding: 0 20px;
-//   font-size: 18px;
-//   letter-spacing: 1.05px;
-//   line-height: 27px;
-//   margin-bottom: 0px;
-//   height: auto;
-//   max-height: 0px;
-//   overflow-y: hidden;
-//   transition: max-height 0.2s ease-out, margin-bottom 0.2s ease-out, padding 0.2s ease-out;
-//   white-space: normal;
-//   &.active {
-//     padding: 5px 20px 0;
-//     max-height: 300px;
-//     margin-bottom: 20px;
-//   }
-// }
-// .nav__links {
-//   .nav-link {
-//     font-weight: bold;
-//     color: #291D00;
-//     &.router-link-exact-active {
-//       color: $nyanza;
-//     }
-//   }
-// }
-// .nav__media-links {
-//   a {
-//     margin-right: 36px;
-//   }
-//   &.stacked {
-//     height: 116px;
-//     justify-content: space-between;
-//     a {
-//       margin-right: 0px;
-//       margin-bottom: 10px;
-//     }
-//   }
-//   @media (max-width: 375px) {
-//     display: none;
-//   }
-// }
-// .nav__media-icon {
-//   font-size: 42px;
-//   color: $old-lace;
-// }
-// .nav__expand-collapse {
-//   justify-content: flex-end;
-//   margin-bottom: 20px;
-//   button {
-//     cursor: pointer;
-//     background: transparent;
-//     border: none;
-//     color: $old-lace;
-//     font-size: 18px;
-//     width: 65px;
-//     i {
-//       transform: rotate(45deg);
-//       transition: transform 0.3s;
-//       &.collapsed {
-//         transform: initial;
-//       }
-//     }
-//   }
-// }

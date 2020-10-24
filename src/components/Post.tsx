@@ -26,8 +26,11 @@ export function Post({ post }: Props): ReactElement {
         <span className="post__date">{created}</span>
         {updated && <span className="post__date">{updated}</span>}
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      <span>
+      <div
+        className="post__content"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
+      <span className="post__content">
         There are many variations of passages of Lorem Ipsum available, but the
         majority have suffered alteration in some form, by injected humour, or
         randomised words which don't look even slightly believable. If you are

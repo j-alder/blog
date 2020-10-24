@@ -1,19 +1,18 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Post } from '../types';
 import { Blurb } from './Blurb';
 
 interface Props {
-  posts?: Array<Post>;
+  posts?: Post[];
 }
 
 export function Nav({ posts }: Props): ReactElement {
-  const [expanded, setExpanded] = React.useState<boolean>(false);
-  const [activeSection, setActiveSection] = React.useState<string>();
+  const [expanded, setExpanded] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState<string>();
 
-  /**
-   * Determine if a section is active and return 'active' or empty string
-   * @param section - section name
-   */
+  const history = useHistory();
+
   function isActive(section: string): string {
     if (activeSection === section) {
       return 'active';
@@ -21,10 +20,6 @@ export function Nav({ posts }: Props): ReactElement {
     return '';
   }
 
-  /**
-   * Set a section to active or set activeSection to undefined if section already active
-   * @param section - section name
-   */
   function setActive(section: string): void {
     return setActiveSection((currActiveSection) => {
       if (currActiveSection === section) {
@@ -32,6 +27,10 @@ export function Nav({ posts }: Props): ReactElement {
       }
       return section;
     });
+  }
+
+  function navToPost(title: string): void {
+    history.push(`/blog/post/${title.split(' ').join('-').toLowerCase()}`);
   }
 
   return (
@@ -52,10 +51,10 @@ export function Nav({ posts }: Props): ReactElement {
         </div>
         <div className={`nav__section ${isActive('about')}`}>
           <span>
-            I'm a software developer navigating the tech industry in Richmond,
-            Virginia. This blog is meant to be as wandering as my interests,
-            which typically revolve around bicycling, camping, programming and
-            preparing to be a dad.
+            I&apos;m a software developer navigating the tech industry in
+            Richmond, Virginia. This blog is meant to be as wandering as my
+            interests, which typically revolve around bicycling, camping,
+            programming and preparing to be a dad.
           </span>
         </div>
 
@@ -70,8 +69,10 @@ export function Nav({ posts }: Props): ReactElement {
           <ul id="posts">
             {posts ? (
               posts.map((post) => (
-                <li key={post.created}>
-                  <button>{post.title}</button>
+                <li key={post.created} className="nav__archive-link">
+                  <button onClick={() => navToPost(post.title)}>
+                    {post.title}
+                  </button>
                 </li>
               ))
             ) : (
@@ -101,5 +102,3 @@ export function Nav({ posts }: Props): ReactElement {
     </div>
   );
 }
-
-Nav.displayName = 'Nav';
