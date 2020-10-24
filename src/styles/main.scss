@@ -1,0 +1,36 @@
+@import './util/_theme';
+@import './components/_blurb';
+@import './components/_content';
+@import './components/_nav';
+@import './components/_post';
+@import './components/_blog';
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+}
+#app {
+  font-family: 'Barlow', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #FFF8E8;
+  color: #291D00;
+  font-size: 16px;
+  @media (max-width: 375px) {
+    flex-direction: column;
+  }
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}

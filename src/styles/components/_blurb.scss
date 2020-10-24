@@ -1,0 +1,54 @@
+@import '../util/_theme';
+
+#blurb {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.1rem;
+  color: $old-lace;
+}
+.blurb__title {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+// #blurb {
+//   display: flex;
+//   flex-direction: column;
+//   letter-spacing: 0.1rem;
+//   align-items: center;
+// }
+// .blurb__pic {
+//   height: 100px;
+//   width: 100px;
+//   border-radius: 50%;
+//   margin-right: 20px;
+// }
+// .blurb__title {
+//   font-weight: 500;
+//   font-size: 2rem;
+//   border-bottom: 1px solid $nyanza;
+//   padding-bottom: 8px;
+//   &.collapsed {
+//     letter-spacing: 0rem;
+//     line-height: 20px;
+//     text-align: center;
+//     border-bottom: none;
+//     hr {
+//       background-color: $nyanza;
+//       width: 20px;
+//       height: 2px;
+//       border: none;
+//       margin-bottom: 12px;
+//     }
+//   }
+//   @media (max-width: 375px) {
+//     font-size: 1.5rem;
+//   }
+// }
+// .blurb__intro {
+//   font-size: 1.1rem;
+//   padding-top: 8px;
+//   @media (max-width: 375px) {
+//     font-size: 0.8rem;
+//   }
+// }

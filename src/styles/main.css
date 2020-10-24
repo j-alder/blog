@@ -1,0 +1,251 @@
+#blurb {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.1rem;
+  color: #FFF8E8;
+}
+
+.blurb__title {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+#content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+#nav {
+  position: fixed;
+  top: 0;
+  padding: 10px;
+  background: #738290;
+  color: #FFF8E8;
+  height: 48px;
+  overflow-y: hidden;
+  transition: height 0.3s ease-in-out;
+  box-shadow: 0px -29px 40px 25px #534a4a;
+  z-index: 1;
+  transition: top 0.3s;
+}
+#nav.expanded {
+  height: 500px;
+}
+
+.nav__header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E4F0D0;
+  margin-bottom: 20px;
+}
+
+.nav__expand-collapse {
+  align-items: center;
+}
+.nav__expand-collapse button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #FFF8E8;
+  font-size: 18px;
+  width: 65px;
+}
+.nav__expand-collapse button i {
+  transition: transform 0.3s ease-in-out;
+}
+.nav__expand-collapse button i.expanded {
+  transform: rotate(45deg);
+}
+
+.nav__drawer-header {
+  margin-bottom: 20px;
+  transition: margin-bottom 0.3s ease-out;
+  border-width: 0px;
+}
+.nav__drawer-header button {
+  padding: 0px;
+  background: none;
+  border: none;
+  color: #FFF8E8;
+  cursor: pointer;
+  letter-spacing: 3.1px;
+  font-weight: 350;
+  font-size: 24px;
+}
+.nav__drawer-header hr {
+  border: none;
+  margin: 5px 0 0;
+  width: 0px;
+  height: 1px;
+  background-color: #E4F0D0;
+  transition: width 0.3s ease-out;
+  align-self: center;
+}
+.nav__drawer-header.active {
+  margin-bottom: 0px;
+}
+.nav__drawer-header.active hr {
+  width: 125px;
+}
+.nav__drawer-header.active button {
+  font-weight: 500;
+}
+
+.nav__section {
+  padding: 0 20px;
+  font-size: 18px;
+  letter-spacing: 1.05px;
+  line-height: 27px;
+  margin-bottom: 0px;
+  height: auto;
+  max-height: 0px;
+  overflow-y: hidden;
+  transition: max-height 0.2s ease-out, margin-bottom 0.2s ease-out, padding 0.2s ease-out;
+  white-space: normal;
+}
+.nav__section.active {
+  padding: 5px 20px 0;
+  max-height: 300px;
+  margin-bottom: 20px;
+}
+
+.nav__media-links {
+  display: flex;
+  justify-content: center;
+}
+.nav__media-links :first-child {
+  margin-right: 10px;
+}
+.nav__media-links :last-child {
+  margin-left: 10px;
+}
+
+.nav__media-icon {
+  font-size: 42px;
+  color: #FFF8E8;
+}
+
+#post {
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+}
+
+.post__title-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  border-bottom: 1px solid #738290;
+}
+@media (max-width: 375px) {
+  .post__title-row {
+    flex-direction: column;
+    border-bottom: none;
+  }
+}
+
+.post__date {
+  display: flex;
+  flex-direction: column;
+  color: #738290;
+  text-align: right;
+  justify-content: flex-end;
+}
+@media (max-width: 375px) {
+  .post__date {
+    border-top: 1px solid #738290;
+    text-align: left;
+  }
+}
+
+.post__title {
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+}
+@media (max-width: 375px) {
+  .post__title {
+    font-size: 32px;
+  }
+}
+
+.post__image {
+  max-width: 100%;
+}
+
+.post__right-image {
+  float: right;
+  margin: 10px 0 10px 20px;
+  max-width: 100%;
+}
+
+.post__left-image {
+  float: left;
+  margin: 10px 20px 10px 0;
+  max-width: 100%;
+}
+
+.post__text {
+  font-size: 18px;
+  line-height: 28px;
+  text-align: justify;
+  display: block;
+  letter-spacing: 0.15px;
+  max-width: 100%;
+}
+
+#blog {
+  padding-top: 90px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: auto;
+  background: #FFF8E8;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  font-family: "Barlow", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #FFF8E8;
+  color: #291D00;
+  font-size: 16px;
+}
+@media (max-width: 375px) {
+  #app {
+    flex-direction: column;
+  }
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/*# sourceMappingURL=main.css.map */
