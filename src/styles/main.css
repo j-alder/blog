@@ -23,15 +23,15 @@
   padding: 10px;
   background: #738290;
   color: #FFF8E8;
-  height: 48px;
+  height: auto;
+  max-height: 48px;
   overflow-y: hidden;
-  transition: height 0.3s ease-in-out;
+  transition: max-height 0.3s ease-in-out;
   box-shadow: 0px -29px 40px 25px #534a4a;
   z-index: 1;
-  transition: top 0.3s;
 }
 #nav.expanded {
-  height: 500px;
+  max-height: 350px;
 }
 
 .nav__header {
@@ -53,6 +53,8 @@
   color: #FFF8E8;
   font-size: 18px;
   width: 65px;
+  margin: 0px;
+  padding: 0px;
 }
 .nav__expand-collapse button i {
   transition: transform 0.3s ease-in-out;
@@ -111,6 +113,24 @@
   padding: 5px 20px 0;
   max-height: 300px;
   margin-bottom: 20px;
+}
+
+.nav__archive-link ::marker:hover {
+  color: #E4F0D0;
+}
+.nav__archive-link button {
+  color: #FFF8E8;
+  font-size: 20px;
+  font-family: "Barlow", Helvetica, sans-serif;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  cursor: pointer;
+}
+.nav__archive-link button:hover {
+  color: #E4F0D0;
 }
 
 .nav__media-links {
@@ -191,7 +211,7 @@
   max-width: 100%;
 }
 
-.post__text {
+.post__content {
   font-size: 18px;
   line-height: 28px;
   text-align: justify;
