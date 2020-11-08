@@ -4,7 +4,6 @@ import { Post } from '../types';
 import { Nav } from './Nav';
 import { Blog } from './Blog';
 import { getAllPosts } from '../util/aws';
-import { NotFound } from './NotFound';
 
 export function Main(): ReactElement {
   const [posts, setPosts] = useState<Post[]>();
@@ -31,11 +30,8 @@ export function Main(): ReactElement {
       <Router>
         <Nav posts={posts} />
         <Switch>
-          <Route path={['/', '/blog', '/blog/post/:title']}>
+          <Route path={['/', '/blog', '/blog/post/:title']} exact>
             <Blog posts={posts} />
-          </Route>
-          <Route path="*">
-            <NotFound />
           </Route>
         </Switch>
       </Router>
