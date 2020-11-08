@@ -11,10 +11,25 @@
   max-height: 48px;
   overflow-y: hidden;
   transition: max-height 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
   box-shadow: 0px -29px 40px 25px #534a4a;
   z-index: 1;
+  width: 100%;
   &.expanded {
     max-height: 350px;
+  }
+  &.desktop {
+    justify-content: space-between;
+  }
+  @media (min-width: $desktop-width) {
+    height: 100%;
+    max-height: none;
+    width: 48px;
+    box-shadow: -19px -29px 40px 25px #534a4a;
+    &.expanded {
+      width: 440px;
+      max-height: none;
+    }
   }
 }
 .nav__header {
@@ -24,6 +39,11 @@
   padding-bottom: 10px;
   border-bottom: 1px solid $nyanza;
   margin-bottom: 20px;
+  &.desktop-min {
+    border-bottom: none;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 .nav__expand-collapse {
   align-items: center;
@@ -42,6 +62,9 @@
         transform: rotate(45deg);
       }
     }
+  }
+  &.desktop-min {
+    margin-top: 35px;
   }
 }
 .nav__drawer-header {
@@ -121,6 +144,13 @@
   }
   :last-child {
     margin-left: 10px;
+  }
+  &.desktop-min {
+    align-items: center;
+    flex-direction: column;
+    :first-child, :last-child {
+      margin: 0 0 16px;
+    }
   }
 }
 .nav__media-icon {
