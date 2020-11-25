@@ -92,10 +92,7 @@ export function Nav({ posts }: Props): ReactElement {
                   posts.map((post) => (
                     <li key={post.created} className="nav__archive-link">
                       <button onClick={() => navToPost(post.title)}>
-                        {fmtArchiveLinkText(
-                          post.title,
-                          post.updated || post.created,
-                        )}
+                        {`${post.title} ${post.updated || post.created}`}
                       </button>
                     </li>
                   ))
