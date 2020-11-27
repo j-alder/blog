@@ -6,7 +6,8 @@
     "start": "webpack-dev-server --config webpack.config.js --progress --colors --mode=development",
     "build": "webpack -p",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-    "sass": "sass --watch ./src/styles"
+    "sass": "sass --watch ./src/styles",
+    "deploy": "./deploy.sh"
   },
   "author": "Jonathon Alder",
   "license": "ISC",
