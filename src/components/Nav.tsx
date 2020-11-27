@@ -1,8 +1,24 @@
 import React, { ReactElement, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Post } from '../types';
-import { fmtArchiveLinkText } from '../util/strings';
+import { fmtArchiveLinkText, fmtDate } from '../util/strings';
 import { Blurb } from './Blurb';
+
+interface PostLinkProps {
+  title: string;
+  date: string;
+  onClick: () => void;
+}
+
+function PostLink(props: PostLinkProps): ReactElement {
+  return (
+    <button onClick={() => props.onClick()}>
+      <span>{props.title}</span>
+      <span>{fmtDate(props.date)}</span>
+      {/* {fmtArchiveLinkText(props.title, props.date)} */}
+    </button>
+  );
+}
 
 interface Props {
   posts?: Post[];
@@ -73,7 +89,7 @@ export function Nav({ posts }: Props): ReactElement {
                 I&apos;m a software developer navigating the tech industry in
                 Richmond, Virginia. This blog is meant to be as wandering as my
                 interests, which typically revolve around bicycling, camping,
-                programming and preparing to be a dad.
+                programming and being a dad.
               </span>
             </div>
 
@@ -83,23 +99,25 @@ export function Nav({ posts }: Props): ReactElement {
                 'archive',
               )}`}
             >
-              <button onClick={() => setActive('archive')}>ARCHIVE</button>
+              <button onClick={() => setActive('archive')}>POSTS</button>
               <hr />
             </div>
             <div className={`nav__section ${isActive('archive')}`}>
-              <ul id="posts">
+              <div id="posts">
                 {posts ? (
                   posts.map((post) => (
-                    <li key={post.created} className="nav__archive-link">
-                      <button onClick={() => navToPost(post.title)}>
-                        {`${post.title} ${post.updated || post.created}`}
-                      </button>
-                    </li>
+                    <div key={post.created} className="nav__archive-link">
+                      <PostLink
+                        title={post.title}
+                        date={post.updated || post.created}
+                        onClick={() => navToPost(post.title)}
+                      />
+                    </div>
                   ))
                 ) : (
                   <span>No posts in archive.</span>
                 )}
-              </ul>
+              </div>
             </div>
           </div>
         )}

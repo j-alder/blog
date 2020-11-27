@@ -17,8 +17,7 @@ export function fmtArchiveLinkText(
 ): string | undefined {
   const formattedDate = fmtDate(date);
   if (formattedDate) {
-    const len = 90 - title.length;
-    return title + '.'.repeat(len) + formattedDate;
+    return `${title} ${formattedDate}`;
   }
   return;
 }

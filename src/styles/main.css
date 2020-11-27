@@ -164,19 +164,29 @@
   margin-bottom: 20px;
 }
 
-.nav__archive-link ::marker:hover {
-  color: #E4F0D0;
+#posts {
+  margin-top: 20px;
+}
+
+.nav__archive-link {
+  margin-bottom: 10px;
 }
 .nav__archive-link button {
   color: #FFF8E8;
-  font-size: 20px;
+  font-size: 1rem;
   font-family: "Barlow", Helvetica, sans-serif;
   letter-spacing: 1px;
   background: none;
   border: none;
   padding: 0px;
   margin: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
   cursor: pointer;
+}
+.nav__archive-link button span {
+  display: block;
 }
 .nav__archive-link button:hover {
   color: #E4F0D0;
@@ -185,6 +195,7 @@
 .nav__media-links {
   display: flex;
   justify-content: center;
+  margin-bottom: 28px;
 }
 .nav__media-links :first-child {
   margin-right: 10px;
@@ -195,6 +206,7 @@
 .nav__media-links.desktop-min {
   align-items: center;
   flex-direction: column;
+  margin-bottom: 0px;
 }
 .nav__media-links.desktop-min :first-child, .nav__media-links.desktop-min :last-child {
   margin: 0 0 16px;

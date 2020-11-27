@@ -117,20 +117,27 @@
     margin-bottom: 20px;
   }
 }
+#posts {
+  margin-top: 20px;
+}
 .nav__archive-link {
-  ::marker:hover {
-    color: $nyanza;
-  }
+  margin-bottom: 10px;
   button {
     color: $old-lace;
-    font-size: 20px;
+    font-size: 1rem;
     font-family: "Barlow", Helvetica, sans-serif;
     letter-spacing: 1px;
     background: none;
     border: none;
     padding: 0px;
     margin: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     cursor: pointer;
+    span {
+      display: block;
+    }
     &:hover {
       color: $nyanza;
     }
@@ -139,6 +146,7 @@
 .nav__media-links {
   display: flex;
   justify-content: center;
+  margin-bottom: 28px;
   :first-child {
     margin-right: 10px;
   }
@@ -148,6 +156,7 @@
   &.desktop-min {
     align-items: center;
     flex-direction: column;
+    margin-bottom: 0px;
     :first-child, :last-child {
       margin: 0 0 16px;
     }
