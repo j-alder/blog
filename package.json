@@ -7,7 +7,8 @@
     "build": "webpack -p",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "sass": "sass --watch ./src/styles",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "invalidate": "./invalidate.sh"
   },
   "author": "Jonathon Alder",
   "license": "ISC",

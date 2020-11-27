@@ -2,3 +2,4 @@ node_modules
 dist
 TestPost.tsx
 deploy.sh
+invalidate.sh

@@ -10,10 +10,7 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
 
 const db = new AWS.DynamoDB({ apiVersion: '2012-08-10' });
 
-/**
- * Unmarshall post objects obtained from DynamoDB
- * @param - response from AWS.DynamoDB.scan
- */
+/** Unmarshall post objects obtained from DynamoDB */
 function unmarshallPosts(itemsList: ItemList): Array<Post> {
   const res = itemsList.reduce((result: Array<Post>, item) => {
     const unmarshalledItem = AWS.DynamoDB.Converter.unmarshall(item);
