@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { PostSummary } from './PostSummary';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Post } from './Post';
 import { Post as PostType } from '../types';
 import { fmtTitle } from '../util/strings';
