@@ -1,25 +1,34 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { PostSummary } from './PostSummary';
-import { useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { Post } from './Post';
 import { Post as PostType } from '../types';
 import { fmtTitle } from '../util/strings';
+import { useQuery } from '../util/url';
 
 interface Props {
   posts?: Array<PostType>;
 }
 
 export function Blog({ posts }: Props): ReactElement {
-  const params = useParams<{ title?: string }>();
-  const [currentPost, setCurrentPost] = useState<PostType>();
+  const filterTag = useQuery().get('tag');
+  const params = useParams<{ title?: string; tag: string }>();
+  const [currentPost, setCurrentPost] = useState<PostType | undefined>();
+  const [filteredPosts, setFilteredPosts] = useState<PostType[] | undefined>();
 
   useEffect(() => {
-    let post = posts?.[0];
+    setCurrentPost(undefined);
     if (params.title) {
-      post = posts?.find((post) => fmtTitle(post.title) === params.title);
+      const post = posts?.find((post) => fmtTitle(post.title) === params.title);
+      if (post) {
+        setCurrentPost(post);
+      }
     }
-    if (post) {
-      setCurrentPost(post);
+    if (filterTag) {
+      const postsWithTag = posts?.filter((post) =>
+        post.tags.includes(filterTag),
+      );
+      setFilteredPosts(postsWithTag || []);
     }
   }, [posts, params]);
 
@@ -34,7 +43,20 @@ export function Blog({ posts }: Props): ReactElement {
   return (
     <div id="blog">
       {posts && posts.length > 0 ? (
-        posts.map((post) => <PostSummary key={post.title} post={post} />)
+        <div className="blog_summary-container">
+          <span className="blog_summary-title">Blog</span>
+          {filterTag && (
+            <span className="blog__filtered-message">
+              <Link to="/blog" onClick={() => setFilteredPosts(undefined)}>
+                <i className="fas fa-times-circle blog__filtered-message_clear-button" />
+              </Link>
+              viewing entries with tag &quot;{filterTag}&quot;
+            </span>
+          )}
+          {(filteredPosts || posts).map((post) => (
+            <PostSummary key={post.title} post={post} />
+          ))}
+        </div>
       ) : (
         <div>
           <span>No posts found.</span>

@@ -25,7 +25,7 @@ function unmarshallPosts(itemsList: ItemList): Array<Post> {
 /** Scan DynamoDB table for all posts */
 export async function getAllPosts(): Promise<Array<Post> | undefined> {
   const params = {
-    ProjectionExpression: 'title, content, created',
+    ProjectionExpression: 'title, content, created, summary, tags',
     TableName: 'posts',
   };
   const res: PromiseResult<ScanOutput, AWSError> = await db

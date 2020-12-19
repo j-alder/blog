@@ -1,3 +1,5 @@
+@import '../util/_theme';
+
 #blog {
   padding-top: 90px;
   display: flex;
@@ -8,8 +10,63 @@
   width: 100%;
   overflow-y: auto;
   background: $old-lace;
+  min-height: 100vh;
   @media (min-width: $desktop-width) {
     position: relative;
     padding-top: 30px;
   }
+}
+.blog_summary-container {
+  display: flex;
+  flex-direction: column;
+}
+.blog_summary-title {
+  font-size: 44px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  align-self: center;
+  border-bottom: 1px solid $coffee;
+  padding-bottom: 4px;
+}
+.blog__filtered-message {
+  font-size: 24px;
+  align-self: center;
+  color: $slate-gray;
+  margin-top: 20px;
+}
+.blog__filtered-message_clear-button {
+  font-size: 16px;
+  color: $slate-darker;
+  margin-right: 10px;
+}
+.post-summary {
+  width: 524px;
+  margin-top: 20px;
+}
+.post-summary_top {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid;
+  align-items: baseline;
+  justify-content: space-between;
+  text-decoration: none;
+  color: $slate-gray;
+  &:visited {
+    color: $slate-gray;
+  }
+}
+.post-summary_title {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 4px;
+}
+.post-summary_date {
+  margin-left: 16px;
+}
+.post-summary_summary {
+  display: block;
+  font-size: 20px;
+  margin: 10px 0px;
+  color: #565451;
+  font-style: italic;
 }

@@ -49,6 +49,7 @@ export function Nav({ posts }: Props): ReactElement {
   }
 
   function navToPost(title: string): void {
+    setExpanded(false);
     history.push(`/blog/post/${title.split(' ').join('-').toLowerCase()}`);
   }
 

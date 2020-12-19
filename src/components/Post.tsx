@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Post as PostType } from '../types';
 import { fmtDate } from '../util/strings';
+import { Tag } from './Tag';
 
 interface Props {
   post: PostType;
@@ -16,11 +17,15 @@ export function Post({ post }: Props): ReactElement {
         <span className="post__date">{created}</span>
         {updated && <span className="post__date">{updated}</span>}
       </div>
+      <div className="post__tags">
+        {post.tags.map((tag) => (
+          <Tag key={tag} tag={tag} />
+        ))}
+      </div>
       <div
         className="post__content"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
-      <span>{post.tags}</span>
     </div>
   );
 }
