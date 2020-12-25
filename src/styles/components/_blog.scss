@@ -21,12 +21,15 @@
   flex-direction: column;
 }
 .blog_summary-title {
-  font-size: 44px;
+  font-size: 30px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   align-self: center;
   border-bottom: 1px solid $coffee;
   padding-bottom: 4px;
+  @media (min-width: $desktop-width) {
+    font-size: 44px;
+  }
 }
 .blog__filtered-message {
   font-size: 24px;
@@ -40,8 +43,11 @@
   margin-right: 10px;
 }
 .post-summary {
-  width: 524px;
+  width: 100%;
   margin-top: 20px;
+  @media (min-width: $desktop-width) {
+    width: 524px;
+  }
 }
 .post-summary_top {
   display: flex;
@@ -56,9 +62,12 @@
   }
 }
 .post-summary_title {
-  font-size: 36px;
+  font-size: 24px;
   display: block;
   margin-bottom: 4px;
+  @media (min-width: $desktop-width) {
+    font-size: 36px;
+  }
 }
 .post-summary_date {
   margin-left: 16px;
