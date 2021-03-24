@@ -3,3 +3,4 @@ dist
 TestPost.tsx
 deploy.sh
 invalidate.sh
+.idea
